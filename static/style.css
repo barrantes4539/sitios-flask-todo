@@ -1,0 +1,63 @@
+/* Styles for the header */
+h1.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styles for the "Nuevo" link */
+a.action {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+a.action:hover {
+  background-color: #0056b3;
+}
+
+a.action:active {
+  background-color: #004099;
+}
+  
+  .content {
+    padding: 20px;
+  }
+  .todo {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .todo h1 {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .todo .about {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .todo a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  .todo .completed {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .todoList{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    width: 300px;
+  }

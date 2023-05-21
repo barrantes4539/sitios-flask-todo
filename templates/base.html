@@ -1,0 +1,89 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %} - Todo List</title>
+  <style>
+    /* Styles for the header */
+    nav {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    nav li {
+      margin-left: 10px;
+    }
+
+    nav li:first-child {
+      margin-left: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 10px;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .flash {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Todo List</h1>
+    <ul>
+      {% if g.user %}
+        <li><span>{{ g.user['username'] }}</span></li>
+        <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
+      {% else %}
+        <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
+        <li><a href="{{ url_for('auth.login') }}">Iniciar Sesión</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</body>
+</html>
